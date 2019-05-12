@@ -10,3 +10,13 @@ $(document).ready(function(){
     $("#total-score1").text(0);
     $("#total-points1").text(0);
   });
+  //Submission of Player Two Details & Navigating to playing board
+  $(".player-two").submit(function(event){
+    event.preventDefault();
+    var name = $(".player2-name").val();
+    newPlayer2 = new Player(name);
+    $("#name2").text(newPlayer2.name);
+    $("#turn-count2").text(0);
+    $("#total-score2").text(0);
+    $("#total-points2").text(0);
+  });
