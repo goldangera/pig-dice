@@ -45,7 +45,7 @@ $(document).ready(function(){
     });
   });
   //Function of Player One pass & hold button
-var pass1 = function(){
+  var pass1 = function(){
   $(document).ready(function(){
     $(".player1-board").addClass("inactive");
     $(".player1-board").removeClass("active");
@@ -58,5 +58,30 @@ var pass1 = function(){
     $(".roll-one2").hide();
     $("#turn-count2").text(0);
     $("#total-score2").text(0);
+    });
+  };
+  //Function of Player Two pass & hold button
+var pass2 = function(){
+  $(document).ready(function(){
+    $(".player1-board").addClass("active");
+    $(".player1-board").removeClass("inactive");
+    $(".player2-board").addClass("inactive");
+    $(".player2-board").removeClass("active");
+    $(".submit2").attr("disabled", true);
+    $(".submit1").attr("disabled", false);
+    $(".pass2").attr("disabled", true);
+    $(".pass1").attr("disabled", false);
+    $(".roll-one1").hide();
+    $("#turn-count1").text(0);
+    $("#total-score1").text(0);
   });
+};
+//Bussines logic
+//New Player Constructor
+var Player = function(name){
+  this.name = name;
+  this.score = [];
+  this.rolls = [];
+  this.tallys = [];
+  this.finalScore = [];
 };
