@@ -44,3 +44,19 @@ $(document).ready(function(){
       pass2();
     });
   });
+  //Function of Player One pass & hold button
+var pass1 = function(){
+  $(document).ready(function(){
+    $(".player1-board").addClass("inactive");
+    $(".player1-board").removeClass("active");
+    $(".player2-board").addClass("active");
+    $(".player2-board").removeClass("inactive");
+    $(".submit1").attr("disabled", true);
+    $(".submit2").attr("disabled", false);
+    $(".pass1").attr("disabled", true);
+    $(".pass2").attr("disabled", false);
+    $(".roll-one2").hide();
+    $("#turn-count2").text(0);
+    $("#total-score2").text(0);
+  });
+};
