@@ -25,3 +25,9 @@ $(document).ready(function(){
       play1();
       $("#total-score1").text(newPlayer1.score);
     });
+    //Player One holding and passing
+    $("#pass1").click(function(){
+      newPlayer1.tally();
+      $("#total-points1").text(newPlayer1.finalScore);
+      pass1();
+    });
