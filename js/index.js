@@ -137,3 +137,14 @@ var play2 = function(imageChanger){
 
   }
 };
+//Function to run if dice roll is above one to add all individual roll scores
+Player.prototype.win = function(){
+  var total = 0;
+  this.rolls.forEach(function(roll){
+    total += roll;
+  })
+  var score = 0;
+  score = score + total;
+  this.score = [];
+  this.score.push(score);
+};
