@@ -168,3 +168,16 @@ Player.prototype.tally = function(){
   this.score = [];
   this.score.push(0);
 };
+
+//Function to test if a player has reached 100 points
+Player.prototype.finish = function(){
+  var check = parseInt(this.score) + parseInt(this.finalScore);
+  if(check >= 100){
+    $(document).ready(function(){
+      $(".celebration").fadeIn();
+      $(".player1-board").slideUp();
+      $(".player2-board").slideUp();
+    });
+    document.getElementById("winner").innerHTML = this.name;
+  };
+};
