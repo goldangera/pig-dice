@@ -31,3 +31,16 @@ $(document).ready(function(){
       $("#total-points1").text(newPlayer1.finalScore);
       pass1();
     });
+    //Player Two rolling the dice
+    $("#roll-dice2").click(function(){
+      play2();
+      $("#total-score2").text(newPlayer2.score);
+    });
+
+  //Player Two holding and passing
+    $("#pass2").click(function(){
+      newPlayer2.tally();
+      $("#total-points2").text(newPlayer2.finalScore);
+      pass2();
+    });
+  });
