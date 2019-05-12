@@ -148,3 +148,23 @@ Player.prototype.win = function(){
   this.score = [];
   this.score.push(score);
 };
+//Function to run if dice roll is one to delete round score
+Player.prototype.lose = function(){
+  this.rolls = [];
+};
+
+//Function adding each round's score to get total score
+Player.prototype.tally = function(){
+  this.rolls = [];
+  this.tallys.push(parseInt(this.score));
+  var sum = 0;
+  this.tallys.forEach(function(tally){
+    sum += tally;
+  })
+  var score1 = 0;
+  score1 = score1 + sum;
+  this.finalScore = [];
+  this.finalScore.push(score1);
+  this.score = [];
+  this.score.push(0);
+};
