@@ -85,3 +85,28 @@ var Player = function(name){
   this.tallys = [];
   this.finalScore = [];
 };
+//Function to roll dice for Player One
+var play1 = function(){
+  var dice = [1,2,3,4,5,6];
+
+  var diceRoll = dice[Math.floor(Math.random() * dice.length)];
+
+  document.getElementById("turn-count1").innerHTML = diceRoll;
+
+  if(diceRoll === 1){
+
+    newPlayer1.lose();
+    newPlayer2.score = [];
+    newPlayer2.score.push(0);
+    pass1();
+    $(document).ready(function(){
+      $(".roll-one1").show();
+      $(".roll-one2").hide();
+    });
+  }
+  else{
+    newPlayer1.rolls.push(diceRoll);
+    newPlayer1.win();
+    newPlayer1.finish();
+  };
+};
