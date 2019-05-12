@@ -110,3 +110,30 @@ var play1 = function(){
     newPlayer1.finish();
   };
 };
+
+//Function to roll dice for Player Two
+var play2 = function(imageChanger){
+  var dice = [1,2,3,4,5,6];
+
+  var diceRoll = dice[Math.floor(Math.random() * dice.length)];
+
+  document.getElementById("turn-count2").innerHTML = diceRoll;
+
+  if(diceRoll === 1){
+
+    newPlayer2.lose();
+    newPlayer1.score = [];
+    newPlayer1.score.push(0);
+    pass2();
+    $(document).ready(function(){
+      $(".roll-one2").show();
+      $(".roll-one1").hide();
+    });
+  }
+  else{
+    newPlayer2.rolls.push(diceRoll);
+    newPlayer2.win();
+    newPlayer2.finish();
+
+  }
+};
