@@ -20,3 +20,8 @@ $(document).ready(function(){
     $("#total-score2").text(0);
     $("#total-points2").text(0);
   });
+  //Player One rolling the dice
+    $("#roll-dice1").click(function() {
+      play1();
+      $("#total-score1").text(newPlayer1.score);
+    });
