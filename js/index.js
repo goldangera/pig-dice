@@ -10,6 +10,7 @@ $(document).ready(function(){
     $("#total-score1").text(0);
     $("#total-points1").text(0);
   });
+
   //Submission of Player Two Details & Navigating to playing board
   $(".player-two").submit(function(event){
     event.preventDefault();
@@ -20,32 +21,36 @@ $(document).ready(function(){
     $("#total-score2").text(0);
     $("#total-points2").text(0);
   });
-  //Player One rolling the dice
-    $("#roll-dice1").click(function() {
-      play1();
-      $("#total-score1").text(newPlayer1.score);
-    });
-    //Player One holding and passing
-    $("#pass1").click(function(){
-      newPlayer1.tally();
-      $("#total-points1").text(newPlayer1.finalScore);
-      pass1();
-    });
-    //Player Two rolling the dice
-    $("#roll-dice2").click(function(){
-      play2();
-      $("#total-score2").text(newPlayer2.score);
-    });
 
-  //Player Two holding and passing
-    $("#pass2").click(function(){
-      newPlayer2.tally();
-      $("#total-points2").text(newPlayer2.finalScore);
-      pass2();
-    });
+  //Player One rolling the dice
+  $("#roll-dice1").click(function(){
+    play1();
+    $("#total-score1").text(newPlayer1.score);
   });
-  //Function of Player One pass & hold button
-  var pass1 = function(){
+
+  //Player One holding and passing
+  $("#pass1").click(function(){
+    newPlayer1.tally();
+    $("#total-points1").text(newPlayer1.finalScore);
+    pass1();
+  });
+
+//Player Two rolling the dice
+  $("#roll-dice2").click(function(){
+    play2();
+    $("#total-score2").text(newPlayer2.score);
+  });
+
+//Player Two holding and passing
+  $("#pass2").click(function(){
+    newPlayer2.tally();
+    $("#total-points2").text(newPlayer2.finalScore);
+    pass2();
+  });
+});
+
+//Function of Player One pass & hold button
+var pass1 = function(){
   $(document).ready(function(){
     $(".player1-board").addClass("inactive");
     $(".player1-board").removeClass("active");
@@ -58,9 +63,10 @@ $(document).ready(function(){
     $(".roll-one2").hide();
     $("#turn-count2").text(0);
     $("#total-score2").text(0);
-    });
-  };
-  //Function of Player Two pass & hold button
+  });
+};
+
+//Function of Player Two pass & hold button
 var pass2 = function(){
   $(document).ready(function(){
     $(".player1-board").addClass("active");
@@ -76,6 +82,7 @@ var pass2 = function(){
     $("#total-score1").text(0);
   });
 };
+
 //Bussines logic
 //New Player Constructor
 var Player = function(name){
@@ -85,6 +92,7 @@ var Player = function(name){
   this.tallys = [];
   this.finalScore = [];
 };
+
 //Function to roll dice for Player One
 var play1 = function(){
   var dice = [1,2,3,4,5,6];
@@ -137,6 +145,7 @@ var play2 = function(imageChanger){
 
   }
 };
+
 //Function to run if dice roll is above one to add all individual roll scores
 Player.prototype.win = function(){
   var total = 0;
@@ -148,6 +157,7 @@ Player.prototype.win = function(){
   this.score = [];
   this.score.push(score);
 };
+
 //Function to run if dice roll is one to delete round score
 Player.prototype.lose = function(){
   this.rolls = [];
